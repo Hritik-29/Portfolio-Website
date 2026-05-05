@@ -1,65 +1,64 @@
-# My Portfolio Website - Overview 🚀
+# Hritik Srivastava - Personal Portfolio 🚀
 
-This repository contains the open-source version of my personal portfolio website.  
-Feel free to explore the code and use it for learning and inspiration.
+Welcome to the repository for my personal portfolio website! This site showcases my background in data analytics, my current MBA journey at IIM Shillong, and my focus on **Strategy & Analytics**.
 
----
-
-## ⚠️ Usage Notice
-
-This project is shared for learning purposes only.
-
-Please do NOT:
-- Clone or replicate the full website or design
-- Repost it with minor content changes
-- Use this project for commercial/client work
-- Create tutorials or content using this exact project
-
-If you use parts of the code, you must provide proper credit linking back to the original repository.
-
-Build your own version — don’t just copy.
-
-— Moncy Yohannan
+You can view the live site here: [hritiksrivastava-portfolio.vercel.app](https://hritiksrivastava-portfolio.vercel.app/)
 
 ---
 
-## 🛠️ Instructions
+## 🎯 About This Project
 
-I have modified the GSAP Club plugins using trial versions.  
-⚠️ Note: Trial plugins cannot be used for production or hosting.
+I built this portfolio to highlight my professional experience and academic pursuits. It features a clean, modern 2D layout with smooth scrolling animations and interactive elements to provide a dynamic user experience.
 
-For official GSAP Club plugins, refer here:  
-https://gsap.com/docs/v3/Installation/
+### Key Sections:
+- **Hero:** A brief introduction highlighting my focus on Strategy & Analytics.
+- **About:** Details on my transition from enterprise data analytics at Infosys to strategic management at IIM Shillong.
+- **Growth Timeline:** A structured overview of my career and education history.
+- **Work:** A custom horizontal scrolling carousel showcasing my major projects and initiatives.
+- **Tech Stack:** A visual representation of the tools and technologies I use.
 
 ---
 
 ## ⚙️ Tech Stack
 
-React • TypeScript • GSAP • Three.js • WebGL • HTML • CSS • JavaScript
+This website is built with modern web technologies focused on performance and fluid animations:
+- **Framework:** React + TypeScript
+- **Build Tool:** Vite
+- **Animations:** GSAP (GreenSock Animation Platform) + ScrollTrigger
+- **Styling:** Vanilla CSS
+- **Deployment:** Vercel
 
 ---
 
-## 🎨 Assets Usage
+## 🙏 Credits & Attribution
 
-Some 3D assets included in this repository are free to use for learning purposes.
+The original design, architecture, and core codebase for this portfolio were created by **[Moncy Yohannan](https://github.com/MoncyDev)**. 
 
-However:
+I have modified and customized the original 3D-heavy template into a streamlined 2D layout tailored to my professional profile, completely replacing the content, imagery, and sections to fit my journey in Strategy and Analytics. 
 
-- The original 3D avatar used on my live portfolio is NOT included in this repository
-- That avatar is a custom asset created over ~1 month
-- It is not open source and not available for reuse
-
-Any usage, extraction, or redistribution of that avatar from my live website is strictly prohibited.
+A huge thank you to Moncy for open-sourcing the incredible foundation that made this possible!
 
 ---
 
-![Protfolio-Preview](https://github.com/user-attachments/assets/3c4557e7-6392-4928-b8a9-7b2476ef4edd)
+## 🛠️ Local Development
+
+If you want to run this project locally:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Hritik-29/Portfolio-Website.git
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
 ---
 
 ## 📄 License
 
-This project is licensed under the Personal Portfolio License (PPL) v1.0.
-
-See the LICENSE file for full details
-
+This project is shared for portfolio demonstration purposes. The underlying original codebase is subject to the licenses provided by the original creator.
