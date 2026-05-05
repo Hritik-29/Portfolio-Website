@@ -5,7 +5,7 @@ export interface CareerItem {
   role: string;
   company: string;
   date: string | ReactNode;
-  desc: string;
+  desc: string | ReactNode;
   brandColor: string;
   icon: ReactNode;
   isCurrentFocus?: boolean;
@@ -16,7 +16,14 @@ export const careerData: CareerItem[] = [
     role: "Master of Business Administration",
     company: "IIM Shillong",
     date: "2025 – 2027",
-    desc: "Enrolled at one of India's top 20 business schools to bridge a gap between technical execution and strategic leadership. Amid a cohort of high-achieving professionals, I took on the challenge of pivoting from analytics delivery to business problem-solving — pursuing specialisations in Strategy, Marketing, and Operations while actively competing in case championships to sharpen structured thinking under pressure.\n\nAs an active member of EcoBiz (Sustainability & Business Club), I engage in real-world business discussions and cross-functional collaboration. I am now channelling these experiences toward securing roles in Strategy Consulting and Product Management.",
+    desc: (
+      <>
+        Pursuing MBA at IIM Shillong with focus areas in Strategy, Marketing, and Operations. Building expertise at the intersection of data-driven thinking and management decision-making, with a core interest in Strategy Consulting and Product Management.
+        <br />
+        <br />
+        As an Associate Member of EcoBiz, the Sustainability and Business Club, took ownership of high-impact community initiatives. Organized a blood donation drive that drew 200+ participants, led a citywide river cleaning campaign across Shillong, and coordinated a student-led plantation drive resulting in 300+ plants being planted across the campus.
+      </>
+    ),
     brandColor: "rgba(255, 215, 0, 0.15)",
     icon: <FaGraduationCap style={{ color: "#ffd700" }} />,
     isCurrentFocus: true,
