@@ -36,7 +36,7 @@ export const careerData: CareerItem[] = [
         Apr 2023 <br />– Dec 2023
       </>
     ),
-    desc: "Led end-to-end analytics transformation for enterprise clients — architecting data validation frameworks (−30% errors), deploying real-time KPI dashboards (−40% turnaround), and driving agile sprint cycles. Led cross-functional knowledge transfer, distilling technical concepts for non-technical stakeholders.",
+    desc: "Drove analytics transformation for enterprise clients by architecting data validation frameworks (30% fewer errors) and deploying real-time KPI dashboards that cut decision turnaround by 40%. Leveraged ETL pipelines and SAP implementation expertise to manage end-to-end go-live processes with 100% validation accuracy.",
     brandColor: "rgba(0, 116, 204, 0.15)",
     icon: <FaBuilding style={{ color: "#0074cc" }} />,
   },
@@ -48,7 +48,7 @@ export const careerData: CareerItem[] = [
         Oct 2021 <br />– Mar 2023
       </>
     ),
-    desc: "Built business intelligence solutions for Cummins (Fortune 500) financial accounts using OBIEE and Teradata. Engineered SQL optimizations (+30% system performance), standardized SOPs company-wide, and coordinated issue resolution across 3 cross-functional teams managing 20+ daily tasks.",
+    desc: "Delivered BI solutions for Cummins (Fortune 500) using OBIEE and Teradata, engineering SQL optimizations that boosted system performance by 30%. Applied ETL testing and SAP workflows to standardize data operations company-wide, driving accountability across 3 cross-functional teams through structured sprint planning and issue resolution.",
     brandColor: "rgba(0, 116, 204, 0.15)",
     icon: <FaBuilding style={{ color: "#0074cc" }} />,
   },
@@ -56,7 +56,7 @@ export const careerData: CareerItem[] = [
     role: "Bachelor of Computer Applications",
     company: "CSJMU Kanpur",
     date: "2018 – 2021",
-    desc: "Graduated with a focus in Computer Science — building technical foundations in data structures, programming, and systems design that underpin my analytics and product thinking today.",
+    desc: "Graduated with a focus in Computer Science, building strong foundations in data structures, programming, and systems design. Applied these skills hands-on by developing a Python-based Alien Invader game using Pygame, implementing object-oriented design, collision detection, and real-time score tracking within an agile development framework.",
     brandColor: "rgba(16, 185, 129, 0.15)",
     icon: <FaGraduationCap style={{ color: "#10b981" }} />,
   },
