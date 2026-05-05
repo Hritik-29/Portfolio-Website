@@ -25,7 +25,7 @@ export function setCharTimeline() {
       .fromTo(".character-model", { opacity: 1 }, { opacity: 0, duration: 1 }, 0)
       .to(".landing-container", { opacity: 0, duration: 0.4 }, 0)
       .to(".landing-container", { y: "40%", duration: 0.8 }, 0)
-      .fromTo(".about-me", { y: "-50%", opacity: 0 }, { y: "0%", opacity: 1 }, 0);
+      .fromTo(".about-me", { y: "50px", opacity: 0 }, { y: "0px", opacity: 1 }, 0);
 
     tl2
       .to(".about-section", { y: "30%", duration: 6 }, 0)
