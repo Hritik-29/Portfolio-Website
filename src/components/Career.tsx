@@ -1,59 +1,41 @@
 import "./styles/Career.css";
+import { careerData } from "../data/careerData";
 
 const Career = () => {
   return (
     <div className="career-section section-container">
       <div className="career-container">
         <h2>
-          My career <span>&</span>
-          <br /> experience
+          Growth <br /> Timeline
         </h2>
         <div className="career-info">
           <div className="career-timeline">
             <div className="career-dot"></div>
           </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+          {careerData.map((item, index) => (
+            <div className="career-info-box" key={index}>
+              {/* Brand-colour ambient blur — using CSS class + inline custom property */}
+              <div
+                className="career-brand-blur"
+                style={{ "--brand-color": item.brandColor } as React.CSSProperties}
+              />
+              <div className="career-info-in">
+                <div className="career-role">
+                  <h4>{item.role}</h4>
+                  <h5>
+                    {item.icon} {item.company}
+                  </h5>
+                  {item.isCurrentFocus && (
+                    <div className="career-current-badge">
+                      Currently exploring Strategy, Analytics &amp; Product Roles
+                    </div>
+                  )}
+                </div>
+                <h3>{item.date}</h3>
               </div>
-              <h3>20XX</h3>
+              <p>{item.desc}</p>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
-              </div>
-              <h3>20XX</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
-              </div>
-              <h3>NOW</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </div>

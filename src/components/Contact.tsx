@@ -10,21 +10,21 @@ const Contact = () => {
           <div className="contact-box">
             <h4>Email</h4>
             <p>
-              <a href="mailto:example@mail.com" data-cursor="disable">
-                example@mail.com
+              <a href="mailto:hritikhrk29@gmail.com" data-cursor="disable">
+                hritikhrk29@gmail.com
               </a>
             </p>
             <h4>Phone</h4>
             <p>
-              <a href="tel:+9199999999" data-cursor="disable">
-                +91 99999 99999
+              <a href="tel:+916387274334" data-cursor="disable">
+                +91 63872 74334
               </a>
             </p>
           </div>
           <div className="contact-box">
             <h4>Social</h4>
             <a
-              href="https://github.com"
+              href="https://github.com/Hritik-29"
               target="_blank"
               data-cursor="disable"
               className="contact-social"
@@ -32,23 +32,16 @@ const Contact = () => {
               Github <MdArrowOutward />
             </a>
             <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/hritik-srivastava-"
               target="_blank"
               data-cursor="disable"
               className="contact-social"
             >
               Linkedin <MdArrowOutward />
             </a>
+
             <a
-              href="https://x.com"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Twitter <MdArrowOutward />
-            </a>
-            <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/hritik.in"
               target="_blank"
               data-cursor="disable"
               className="contact-social"
@@ -58,10 +51,13 @@ const Contact = () => {
           </div>
           <div className="contact-box">
             <h2>
-              Designed and Developed <br /> by <span>Moncy Yohannan</span>
+              Designed by <span>Hritik Srivastava</span>
             </h2>
+            <p style={{ fontSize: "12px", margin: "5px 0 0 0", opacity: 0.7 }}>
+              Creator Credit <span style={{ color: "var(--accentColor)" }}>Moncy Yohannan</span>
+            </p>
             <h5>
-              <MdCopyright /> 2024
+              <MdCopyright /> 2026
             </h5>
           </div>
         </div>

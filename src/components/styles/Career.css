@@ -17,7 +17,7 @@
   line-height: 70px;
   font-weight: 400;
   text-align: center;
-  background: linear-gradient(0deg, #7f40ff, #ffffff);
+  background: linear-gradient(0deg, #040b14, #ffffff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -39,6 +39,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
+  position: relative;
 }
 .career-info-box p {
   width: 40%;
@@ -53,10 +54,12 @@
   gap: 50px;
 }
 .career-info h3 {
-  font-size: 48px;
+  font-size: 18px;
   margin: 0;
-  font-weight: 500;
-  line-height: 45px;
+  font-weight: 300;
+  color: #888;
+  letter-spacing: 2px;
+  white-space: nowrap;
 }
 
 .career-info h4 {
@@ -73,6 +76,36 @@
   text-transform: capitalize;
   margin: 10px 0px;
   color: var(--accentColor);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ambient brand-colour blur — set via --brand-color CSS custom property */
+.career-brand-blur {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 180px;
+  height: 180px;
+  background: var(--brand-color, transparent);
+  filter: blur(60px);
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* "Currently exploring..." badge */
+.career-current-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border: 1px solid rgba(57, 255, 20, 0.3);
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--accentColor);
+  background-color: rgba(57, 255, 20, 0.05);
+  letter-spacing: 1px;
 }
 .career-timeline {
   position: absolute;
@@ -83,23 +116,24 @@
   height: 100%;
   background-image: linear-gradient(
     to top,
-    #aa42ff 20%,
+    #39ff14 20%,
     var(--accentColor) 50%,
     transparent 95%
   );
-  max-height: 0%;
+  transform: scaleY(0);
+  transform-origin: top;
 }
 .career-dot {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-  background-color: #aa42ff;
+  background-color: #39ff14;
   width: 10px;
   height: 10px;
   border-radius: 50px;
-  box-shadow: 0px 0px 5px 2px #d29bff, 0px 0px 15px 8px #d097ff,
-    0px 0px 110px 20px #f2c0ff;
+  box-shadow: 0px 0px 5px 2px #39ff14, 0px 0px 15px 8px #10b981,
+    0px 0px 110px 20px #040b14;
   animation: timeline 0.8s linear infinite forwards;
 }
 
@@ -109,7 +143,7 @@
   50%,
   70%,
   90% {
-    box-shadow: 0px 0px 5px 2px #d29bff;
+    box-shadow: 0px 0px 5px 2px #39ff14;
   }
   10%,
   30%,
@@ -117,17 +151,17 @@
   100%,
   64%,
   80% {
-    box-shadow: 0px 0px 5px 2px #d29bff, 0px 0px 15px 5px #d097ff,
-      0px 0px 110px 20px #f2c0ff;
+    box-shadow: 0px 0px 5px 2px #39ff14, 0px 0px 15px 5px #10b981,
+      0px 0px 110px 20px #040b14;
   }
 }
 @keyframes timeline2 {
   0% {
-    box-shadow: 0px 0px 5px 2px #d29bff;
+    box-shadow: 0px 0px 5px 2px #39ff14;
   }
   100% {
-    box-shadow: 0px 0px 5px 2px #d29bff, 0px 0px 15px 5px #d097ff,
-      0px 0px 110px 20px #f2c0ff;
+    box-shadow: 0px 0px 5px 2px #39ff14, 0px 0px 15px 5px #10b981,
+      0px 0px 110px 20px #040b14;
   }
 }
 @media only screen and (max-width: 1400px) {
@@ -142,9 +176,6 @@
   }
   .career-info h5 {
     font-size: 17px;
-  }
-  .career-info h3 {
-    font-size: 40px;
   }
   .career-info-box p {
     font-size: 14px;
@@ -161,8 +192,7 @@
 @media only screen and (max-width: 1025px) {
   .career-section {
     padding: 70px 0px;
-    padding-top: 220px;
-    margin-top: -200px;
+    margin-top: 0;
     margin-bottom: 0;
   }
 }
@@ -198,17 +228,13 @@
   .career-info-in {
     gap: 0px;
   }
-  .career-info h3 {
-    font-size: 33px;
-  }
   .career-info-in,
   .career-info-box p {
     padding-left: 5%;
   }
   .career-section {
-    padding-top: 90px;
-    margin-top: -70px;
-
+    padding-top: 60px;
+    margin-top: 0;
     align-items: start;
     place-items: inherit;
     justify-content: left;

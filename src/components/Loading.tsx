@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./styles/Loading.css";
 import { useLoading } from "../context/LoadingProvider";
 
@@ -10,14 +10,20 @@ const Loading = ({ percent }: { percent: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  if (percent >= 100) {
-    setTimeout(() => {
-      setLoaded(true);
-      setTimeout(() => {
-        setIsLoaded(true);
-      }, 1000);
-    }, 600);
-  }
+  // Fix: moved the setTimeout logic into useEffect so it
+  // doesn't stack up duplicate timers on every re-render
+  useEffect(() => {
+    if (percent >= 100) {
+      const t1 = setTimeout(() => {
+        setLoaded(true);
+        const t2 = setTimeout(() => {
+          setIsLoaded(true);
+        }, 1000);
+        return () => clearTimeout(t2);
+      }, 600);
+      return () => clearTimeout(t1);
+    }
+  }, [percent]);
 
   useEffect(() => {
     import("./utils/initialFX").then((module) => {
@@ -46,7 +52,7 @@ const Loading = ({ percent }: { percent: number }) => {
     <>
       <div className="loading-header">
         <a href="/#" className="loader-title" data-cursor="disable">
-          Logo
+          HS
         </a>
         <div className={`loaderGame ${clicked && "loader-out"}`}>
           <div className="loaderGame-container">
@@ -62,8 +68,8 @@ const Loading = ({ percent }: { percent: number }) => {
       <div className="loading-screen">
         <div className="loading-marquee">
           <Marquee>
-            <span> A Creative Developer</span> <span>A Creative Designer</span>
-            <span> A Creative Developer</span> <span>A Creative Designer</span>
+            <span> An Analytics Professional</span> <span>A Business Strategist</span>
+            <span> An Analytics Professional</span> <span>A Business Strategist</span>
           </Marquee>
         </div>
         <div

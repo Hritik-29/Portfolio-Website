@@ -1,13 +1,27 @@
 .about-section {
   display: flex;
   align-items: center;
-  justify-content: left;
-  place-items: center;
+  justify-content: center;
   position: relative;
   opacity: 1;
   height: auto;
   width: var(--cWidth);
   margin: auto;
+  gap: 20px;
+}
+
+.about-image {
+  display: none;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  max-width: 90%;
+  max-height: 80vh;
+  object-fit: contain;
+  filter: drop-shadow(0px 20px 20px rgba(0,0,0,0.5));
 }
 .about-me {
   padding: 50px 0px;
@@ -48,11 +62,14 @@
 @media only screen and (min-width: 1025px) {
   .about-section {
     width: var(--cWidth);
-    justify-content: right;
+    justify-content: space-between;
     max-width: 1920px;
     height: var(--vh);
     padding: 0px;
     opacity: 1;
+  }
+  .about-image {
+    display: flex;
   }
   .about-me {
     padding: 0px;

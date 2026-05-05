@@ -19,8 +19,8 @@
   position: fixed;
   width: 300px;
   height: 300px;
-  background-color: #fb8dff;
-  box-shadow: inset -50px 40px 50px rgba(84, 0, 255, 0.6);
+  background-color: #39ff14;
+  box-shadow: inset -50px 40px 50px rgba(57, 255, 20, 0.6);
   filter: blur(60px);
   border-radius: 50%;
   animation: loadingCircle 5s linear infinite;
@@ -58,8 +58,8 @@
   display: none;
   width: 300px;
   height: 300px;
-  background-color: #fb8dff;
-  box-shadow: inset -50px 40px 50px rgba(84, 0, 255, 0.6);
+  background-color: #39ff14;
+  box-shadow: inset -50px 40px 50px rgba(57, 255, 20, 0.6);
   filter: blur(50px);
   border-radius: 50%;
   animation: loadingCircle2 5s linear infinite;
@@ -87,9 +87,8 @@
   width: 400px;
   height: 400px;
   z-index: 1;
-  background-color: #f59bf8;
-  transform: translate(-50%, 36%) scaleX(1.4);
-  box-shadow: inset 66px 35px 85px 0px rgba(85, 0, 255, 0.65);
+  background-color: #39ff14;
+  box-shadow: inset 66px 35px 85px 0px rgba(57, 255, 20, 0.65);
   filter: blur(50px);
   border-radius: 50%;
   top: 50%;
@@ -98,17 +97,27 @@
   opacity: 0;
 }
 .character-model {
-  height: 80%;
   height: 80vh;
   position: absolute;
   max-width: 1920px;
   max-height: 1080px;
-  transform: translateX(-50%);
   width: 100%;
-  left: 50%;
+  left: 0;
   z-index: 0;
-  bottom: 50px;
-  pointer-events: inherit;
+  bottom: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Hero image sizing — previously inline in Landing.tsx */
+.character-model #hero-img {
+  max-width: 1200px;
+  max-height: 95vh;
+  width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0px 20px 20px rgba(0, 0, 0, 0.5));
 }
 .character-model::after {
   content: "";
@@ -179,10 +188,6 @@
   font-family: "Geist", sans-serif;
 }
 
-/* .landing-intro h1 span {
-   font-weight: 200; 
-} */
-
 .landing-info {
   position: absolute;
   right: 50%;
@@ -197,29 +202,33 @@
   font-weight: 300;
   color: var(--accentColor);
   margin: 0;
+  padding-left: 15px;
 }
 .landing-info h2 {
   margin: 0;
-  margin-top: -20px;
-  margin-left: 20px;
+  margin-top: 0;
+  margin-left: 15px;
   font-family: "Geist", sans-serif;
   font-weight: 600;
   font-size: 32px;
   line-height: 40px;
   position: relative;
-  display: flex;
-  flex-wrap: nowrap;
+  display: block;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+.landing-tagline-accent {
+  color: var(--accentColor);
+  font-weight: 400;
 }
 .landing-h2-info-1 {
   position: absolute;
   top: 0;
 }
 h2.landing-info-h2 {
-  color: #c481ff;
+  color: #39ff14;
   font-size: 42px;
-  width: 120%;
+  width: 100%;
   margin: 0;
   font-family: "Geist", sans-serif;
   font-weight: 600;
@@ -239,7 +248,7 @@ h2.landing-info-h2 {
   background-image: linear-gradient(
     0deg,
     var(--backgroundColor) 40%,
-    rgba(0, 0, 0, 0) 110%
+    transparent 110%
   );
   top: 0;
   left: 0;
@@ -296,7 +305,7 @@ h2.landing-info-h2 {
     height: 100vh;
     bottom: 0;
     z-index: 11;
-    position: fixed;
+    position: absolute;
   }
   .character-model::after,
   .character-model::before {
@@ -355,4 +364,17 @@ h2.landing-info-h2 {
   h2.landing-info-h2 {
     font-size: 75px;
   }
+}
+
+/* ============================================================
+   Hero avatar floating animation (fixed from corrupted UTF-16)
+   ============================================================ */
+#hero-img {
+  animation: floatAvatar 6s ease-in-out infinite;
+}
+
+@keyframes floatAvatar {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
 }

@@ -1,73 +1,87 @@
+import { useRef, useState, useEffect } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(useGSAP);
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { workData } from "../data/workData";
 
 const Work = () => {
-  useGSAP(() => {
-  let translateX: number = 0;
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-  function setTranslateX() {
-    const box = document.getElementsByClassName("work-box");
-    const rectLeft = document
-      .querySelector(".work-container")!
-      .getBoundingClientRect().left;
-    const rect = box[0].getBoundingClientRect();
-    const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-    let padding: number =
-      parseInt(window.getComputedStyle(box[0]).padding) / 2;
-    translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
-  }
-
-  setTranslateX();
-
-  let timeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".work-section",
-      start: "top top",
-      end: `+=${translateX}`, // Use actual scroll width
-      scrub: true,
-      pin: true,
-      id: "work",
-    },
-  });
-
-  timeline.to(".work-flex", {
-    x: -translateX,
-    ease: "none",
-  });
-
-  // Clean up (optional, good practice)
-  return () => {
-    timeline.kill();
-    ScrollTrigger.getById("work")?.kill();
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(Math.ceil(scrollLeft + clientWidth) < scrollWidth - 5);
+    }
   };
-}, []);
+
+  useEffect(() => {
+    handleScroll();
+    window.addEventListener("resize", handleScroll);
+    return () => window.removeEventListener("resize", handleScroll);
+  }, []);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = window.innerWidth > 1024 ? 600 : window.innerWidth * 0.8;
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
-        <h2>
-          My <span>Work</span>
-        </h2>
-        <div className="work-flex">
-          {[...Array(6)].map((_value, index) => (
+        <div className="work-header">
+          <h2>
+            My <span>Work</span>
+          </h2>
+          <div className="work-nav-arrows">
+            <button
+              onClick={() => scroll("left")}
+              aria-label="Scroll Left"
+              disabled={!canScrollLeft}
+              className={!canScrollLeft ? "disabled" : ""}
+            >
+              <FaArrowLeft />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              aria-label="Scroll Right"
+              disabled={!canScrollRight}
+              className={!canScrollRight ? "disabled" : ""}
+            >
+              <FaArrowRight />
+            </button>
+          </div>
+        </div>
+        <div
+          className={`work-flex ${canScrollRight ? "fade-right" : ""} ${canScrollLeft ? "fade-left" : ""}`}
+          ref={scrollRef}
+          onScroll={handleScroll}
+        >
+          {workData.map((item, index) => (
             <div className="work-box" key={index}>
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
-
                   <div>
-                    <h4>Project Name</h4>
-                    <p>Category</p>
+                    <h4>{item.name}</h4>
+                    <p className="work-category">{item.category}</p>
                   </div>
                 </div>
-                <h4>Tools and features</h4>
-                <p>Javascript, TypeScript, React, Threejs</p>
+                <p className="work-description">{item.description}</p>
+                <div className="work-tags">
+                  {item.tools.split(", ").map((tag, i) => (
+                    <span key={i} className="work-tag">{tag}</span>
+                  ))}
+                </div>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt="" />
+              <WorkImage image={item.image} alt={item.name} link={item.link} video={item.video} />
             </div>
           ))}
         </div>

@@ -1,58 +1,59 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
-import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 import "./styles/Navbar.css";
 
-gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-export let smoother: ScrollSmoother;
+// ScrollSmoother has been removed (it was gsap-trial — a watermarked package).
+// Native smooth scrolling is handled via CSS scroll-behavior on the smooth-wrapper,
+// and programmatic navigation uses scrollIntoView.
+gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
-      effects: true,
-      autoResize: true,
-      ignoreMobileResize: true,
-    });
+    // Ensure page starts at top
+    window.scrollTo(0, 0);
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
-
-    let links = document.querySelectorAll(".header ul a");
+    const links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
+      const element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
+        e.preventDefault();
+        const section = element.getAttribute("data-href");
+        if (section) {
+          const target = document.querySelector(section);
+          target?.scrollIntoView({ behavior: "smooth", block: "start" });
         }
+        // Close mobile menu after navigation
+        setMenuOpen(false);
       });
     });
-    window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
-    });
+
+    const onResize = () => {
+      ScrollTrigger.refresh(true);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
+
   return (
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          Logo
+          HS
         </a>
         <a
-          href="mailto:example@mail.com"
+          href="mailto:hritikhrk29@gmail.com"
           className="navbar-connect"
           data-cursor="disable"
         >
-          example@mail.com
+          hritikhrk29@gmail.com
         </a>
-        <ul>
+
+        {/* Desktop nav */}
+        <ul className="nav-links-desktop">
           <li>
             <a data-href="#about" href="#about">
               <HoverLinks text="ABOUT" />
@@ -66,6 +67,39 @@ const Navbar = () => {
           <li>
             <a data-href="#contact" href="#contact">
               <HoverLinks text="CONTACT" />
+            </a>
+          </li>
+        </ul>
+
+        {/* Mobile hamburger */}
+        <button
+          className={`hamburger ${menuOpen ? "hamburger--open" : ""}`}
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      {/* Mobile dropdown */}
+      <div className={`mobile-menu ${menuOpen ? "mobile-menu--open" : ""}`}>
+        <ul>
+          <li>
+            <a data-href="#about" href="#about">
+              ABOUT
+            </a>
+          </li>
+          <li>
+            <a data-href="#work" href="#work">
+              WORK
+            </a>
+          </li>
+          <li>
+            <a data-href="#contact" href="#contact">
+              CONTACT
             </a>
           </li>
         </ul>

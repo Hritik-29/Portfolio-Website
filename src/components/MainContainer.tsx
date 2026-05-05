@@ -1,4 +1,4 @@
-import { lazy, PropsWithChildren, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
@@ -6,17 +6,23 @@ import Cursor from "./Cursor";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
-import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
+import { setCharTimeline, setAllTimeline } from "./utils/GsapScroll";
+import { useLoading } from "../context/LoadingProvider";
+import { setProgress } from "./Loading";
 
 const TechStack = lazy(() => import("./TechStack"));
 
-const MainContainer = ({ children }: PropsWithChildren) => {
+const MainContainer = () => {
+  const { setLoading } = useLoading();
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
     window.innerWidth > 1024
   );
 
+  // Fix: empty dependency array so this only runs once on mount.
+  // isDesktopView is the OUTPUT of this effect, not an input —
+  // keeping it in deps caused the listener to re-register on every resize.
   useEffect(() => {
     const resizeHandler = () => {
       setSplitText();
@@ -27,22 +33,32 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [isDesktopView]);
+  }, []);
+
+  useEffect(() => {
+    const progress = setProgress((value) => setLoading(value));
+    progress.loaded().then(() => {
+      setTimeout(() => {
+        setCharTimeline();
+        setAllTimeline();
+      }, 500);
+    });
+  }, []);
 
   return (
     <div className="container-main">
       <Cursor />
       <Navbar />
       <SocialIcons />
-      {isDesktopView && children}
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="container-main">
-            <Landing>{!isDesktopView && children}</Landing>
+            <Landing />
             <About />
-            <WhatIDo />
             <Career />
+            <div className="section-divider"></div>
             <Work />
+            <div className="section-divider"></div>
             {isDesktopView && (
               <Suspense fallback={<div>Loading....</div>}>
                 <TechStack />
