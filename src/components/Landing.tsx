@@ -14,12 +14,8 @@ const Landing = () => {
             </h1>
           </div>
           <div className="landing-info">
-            <h3>MBA Candidate</h3>
-            <h2>
-              Strategy | Product
-              <br />
-              <span className="landing-tagline-accent">&amp; Analytics</span>
-            </h2>
+            <h3>MBA Student</h3>
+            <h2>Strategy &amp; Analytics</h2>
           </div>
         </div>
         <div className="character-model">
