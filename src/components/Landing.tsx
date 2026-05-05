@@ -27,7 +27,7 @@ const Landing = () => {
             src="/images/hero-avatar.png"
             alt="Hritik Srivastava"
             id="hero-img"
-            fetchpriority="high"
+            fetchPriority="high"
             loading="eager"
             decoding="async"
           />
