@@ -9,15 +9,13 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          I'm an MBA candidate at IIM Shillong with a background in analytics
-          and technology. I've spent 2+ years at Infosys turning messy data into
-          decisions that moved business metrics — cutting turnaround by 40%,
-          reducing errors by 30%. Now I'm building the strategic and product
-          thinking to sit at the table where those decisions get made. I'm
-          actively targeting Strategy Consulting and Product Management roles
-          where analytical rigour meets business context.
-        </p>
-      </div>
+          I spent two years at Infosys making sense of messy enterprise data for Fortune 500 clients, 
+          and somewhere between the SQL queries and SAP go-lives, I realised I was more interested 
+          in the business question behind the data than the data itself. That curiosity is what brought me to IIM Shillong.
+
+          At IIM Shillong, I am building the strategic and people skills to operate where decisions actually get made, 
+          targeting Strategy Consulting and Product Management roles. Off the clock, I am usually experimenting in the kitchen, 
+          because apparently solving ambiguous problems at work was not enough of a challenge.
     </div>
   );
 };
