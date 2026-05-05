@@ -18,7 +18,7 @@ export const careerData: CareerItem[] = [
     date: "2025 – 2027",
     desc: (
       <>
-        Pursuing MBA at IIM Shillong with focus areas in Strategy, Marketing, and Operations. Building expertise at the intersection of data-driven thinking and management decision-making, with a core interest in Strategy Consulting and Product Management.
+        Pursuing MBA at IIM Shillong with focus areas in Analytics, Marketing, and Operations. Building expertise at the intersection of data-driven thinking and management decision-making, with a core interest in Strategy Consulting and Product Management.
         <br />
         <br />
         As an Associate Member of EcoBiz, the Sustainability and Business Club, took ownership of high-impact community initiatives. Organized a blood donation drive that drew 200+ participants, led a citywide river cleaning campaign across Shillong, and coordinated a student-led plantation drive resulting in 300+ plants being planted across the campus.
