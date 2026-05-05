@@ -19,6 +19,7 @@ const About = () => {
           because apparently solving ambiguous problems at work was not enough of a challenge.
           </p>
     </div>
+    </div>
   );
 };
 
