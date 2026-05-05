@@ -27,13 +27,15 @@ const Career = () => {
                   </h5>
                   {item.isCurrentFocus && (
                     <div className="career-current-badge">
-                      Currently exploring Strategy, Analytics &amp; Product Roles
+                      Strategy, Consulting &amp; Product Management Roles
                     </div>
                   )}
                 </div>
                 <h3>{item.date}</h3>
               </div>
-              <p>{item.desc}</p>
+              {item.desc.split("\n\n").map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
             </div>
           ))}
         </div>

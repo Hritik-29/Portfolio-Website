@@ -16,7 +16,7 @@ export const careerData: CareerItem[] = [
     role: "Master of Business Administration",
     company: "IIM Shillong",
     date: "2025 – 2027",
-    desc: "Pursuing MBA at IIM Shillong with focus areas in Strategy, Marketing, and Operations. Active member of EcoBiz (Sustainability & Business Club). Advancing case competition experience while targeting Strategy Consulting and Product Management roles.",
+    desc: "Enrolled at one of India's top 20 business schools to bridge a gap between technical execution and strategic leadership. Amid a cohort of high-achieving professionals, I took on the challenge of pivoting from analytics delivery to business problem-solving — pursuing specialisations in Strategy, Marketing, and Operations while actively competing in case championships to sharpen structured thinking under pressure.\n\nAs an active member of EcoBiz (Sustainability & Business Club), I engage in real-world business discussions and cross-functional collaboration. I am now channelling these experiences toward securing roles in Strategy Consulting and Product Management.",
     brandColor: "rgba(255, 215, 0, 0.15)",
     icon: <FaGraduationCap style={{ color: "#ffd700" }} />,
     isCurrentFocus: true,
