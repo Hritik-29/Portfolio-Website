@@ -9,16 +9,9 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          I spent two years at Infosys making sense of messy enterprise data for Fortune 500 clients, 
-          and somewhere between the SQL queries and SAP go-lives, I realised I was more interested 
-          in the business question behind the data than the data itself. That curiosity is what brought me to IIM Shillong.
-           </p>
-       <p className="para">
-          At IIM Shillong, I am building the strategic and people skills to operate where decisions actually get made, 
-          targeting Strategy Consulting and Product Management roles. Off the clock, I am usually experimenting in the kitchen, 
-          because apparently solving ambiguous problems at work was not enough of a challenge.
-          </p>
-    </div>
+          I came to management with two years of real enterprise experience, working across ERP systems, SQL, and BI tools. At IIM Shillong, I am translating that into strategy and leadership. Outside class, I lead sustainability initiatives through the EcoBiz club. A rare blend of technical execution, business strategy, and people-first thinking that lets me operate confidently across all three.
+        </p>
+      </div>
     </div>
   );
 };

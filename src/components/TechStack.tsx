@@ -29,9 +29,15 @@ const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 16, 16);
 
-const spheres = imageUrls.map(() => ({
-  scale: [0.6, 0.9][Math.floor(Math.random() * 2)], // Small, Medium
+const firstSet = imageUrls.map(() => ({
+  scale: [0.9, 1.2][Math.floor(Math.random() * 2)], // Medium, Large
 }));
+
+const secondSet = firstSet.map(item => ({
+  scale: item.scale === 0.9 ? 1.2 : 0.9, // Opposite size
+}));
+
+const spheres = [...firstSet, ...secondSet];
 
 type SphereProps = {
   vec?: THREE.Vector3;

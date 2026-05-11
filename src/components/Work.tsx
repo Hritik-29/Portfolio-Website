@@ -38,7 +38,7 @@ const Work = () => {
       <div className="work-container section-container">
         <div className="work-header">
           <h2>
-            My <span>Work</span>
+            My <span>Projects</span>
           </h2>
           <div className="work-nav-arrows">
             <button
