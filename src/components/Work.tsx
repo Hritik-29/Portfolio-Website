@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -8,6 +9,7 @@ const Work = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const navigate = useNavigate();
 
   const handleScroll = () => {
     if (scrollRef.current) {
@@ -65,7 +67,12 @@ const Work = () => {
           onScroll={handleScroll}
         >
           {workData.map((item, index) => (
-            <div className="work-box" key={index}>
+            <div 
+              className="work-box" 
+              key={item.id} 
+              onClick={() => navigate(`/project/${item.id}`)}
+              style={{ cursor: "pointer" }}
+            >
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
